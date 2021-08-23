@@ -22,10 +22,13 @@ export const booksSlice = createSlice({
     addBook(state, action) {
       state.push(action.payload);
     },
+    removeBook(state, action) {
+      state.filter((book) => book.id !== action.payload.id);
+    },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { addBook } = booksSlice.actions;
+export const { addBook, removeBook } = booksSlice.actions;
 
 export default booksSlice.reducer;
