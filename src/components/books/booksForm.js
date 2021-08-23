@@ -31,7 +31,7 @@ const BooksForm = () => {
   };
 
   return (
-    <form  onSubmit={onAddBookClicked}>
+    <form onSubmit={onAddBookClicked}>
       <h2>ADD NEW BOOK</h2>
       <input
         type="text"

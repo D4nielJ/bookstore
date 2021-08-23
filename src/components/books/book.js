@@ -1,11 +1,13 @@
-/* eslint-disable react/prop-types */
+import { useDispatch } from 'react-redux';
+import { PropTypes } from 'prop-types';
 
 import { removeBook } from '../../redux/books/booksReducer';
-import { useDispatch } from 'react-redux';
 
 const Book = (props) => {
   const { book } = props;
-  const { id, genre, title, author } = book;
+  const {
+    id, genre, title, author,
+  } = book;
 
   const dispatch = useDispatch();
 
@@ -27,6 +29,15 @@ const Book = (props) => {
       </button>
     </li>
   );
+};
+
+Book.propTypes = {
+  book: PropTypes.shape({
+    id: PropTypes.string,
+    title: PropTypes.string,
+    genre: PropTypes.string,
+    author: PropTypes.string,
+  }).isRequired,
 };
 
 export default Book;
