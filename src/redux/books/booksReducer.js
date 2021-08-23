@@ -1,19 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const initialState = [
-  {
-    id: '1',
-    title: 'The Hunger Games',
-    genre: 'Action',
-    author: 'Suzanne Collins',
-  },
-  {
-    id: '2',
-    title: 'Dune',
-    genre: 'Science Fiction',
-    author: 'Frank Herbert',
-  },
-];
+const initialState = [];
 
 export const booksSlice = createSlice({
   name: 'books',
@@ -23,7 +10,7 @@ export const booksSlice = createSlice({
       state.push(action.payload);
     },
     removeBook(state, action) {
-      state.filter((book) => book.id !== action.payload.id);
+      return state.filter((book) => book.id !== action.payload.id);
     },
   },
 });

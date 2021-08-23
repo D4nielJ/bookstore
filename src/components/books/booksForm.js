@@ -13,7 +13,8 @@ const BooksForm = () => {
   const onTitleChanged = (e) => setTitle(e.target.value);
   const onGenreChanged = (e) => setGenre(e.target.value);
 
-  const onAddBookClicked = () => {
+  const onAddBookClicked = (e) => {
+    e.preventDefault();
     if (title && genre) {
       dispatch(
         addBook({
@@ -30,7 +31,7 @@ const BooksForm = () => {
   };
 
   return (
-    <form>
+    <form  onSubmit={onAddBookClicked}>
       <h2>ADD NEW BOOK</h2>
       <input
         type="text"
@@ -38,12 +39,13 @@ const BooksForm = () => {
         id="title"
         value={title}
         onChange={onTitleChanged}
+        required
       />
       <select name="genre" id="genre" value={genre} onChange={onGenreChanged}>
         <option value="Action">Action</option>
         <option value="Science Fiction">Science Fiction</option>
       </select>
-      <button type="button" onClick={onAddBookClicked}>
+      <button type="submit">
         ADD BOOK
       </button>
     </form>
