@@ -1,8 +1,18 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = [
-  { id: '1', title: 'The Hunger Games', genre: 'Action', author: 'Suzanne Collins' },
-  { id: '2', title: 'Dune', genre: 'Science Fiction', author: 'Frank Herbert' },
+  {
+    id: '1',
+    title: 'The Hunger Games',
+    genre: 'Action',
+    author: 'Suzanne Collins',
+  },
+  {
+    id: '2',
+    title: 'Dune',
+    genre: 'Science Fiction',
+    author: 'Frank Herbert',
+  },
 ];
 
 export const booksSlice = createSlice({
@@ -10,12 +20,12 @@ export const booksSlice = createSlice({
   initialState,
   reducers: {
     addBook: (state, action) => {
-      state = state.concat(action.payload);
-    },    
+      state.concat(action.payload);
+    },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { increment, decrement, incrementByAmount } = counterSlice.actions;
+export const { increment, decrement, incrementByAmount } = booksSlice.actions;
 
-export default counterSlice.reducer;
+export default booksSlice.reducer;
