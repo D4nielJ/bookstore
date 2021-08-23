@@ -19,8 +19,8 @@ export const booksSlice = createSlice({
   name: 'books',
   initialState,
   reducers: {
-    addBook: (state, action) => {
-      state.concat(action.payload);
+    addBook(state, action) {
+      state.push(action.payload);
     },
   },
 });
