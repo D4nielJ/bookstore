@@ -3,10 +3,11 @@ import Navbar from './components/navbar/navbar';
 import Categories from './components/categories/categories';
 import Books from './components/books/books';
 import NoMatch from './components/noMatch/noMatch';
+import st from './app.module.css';
 
 const App = () => (
   <Router basename={process.env.PUBLIC_URL}>
-    <div className="App">
+    <div className={st.app}>
       <Navbar />
       <Switch>
         <Route path="/categories">

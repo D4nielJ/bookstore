@@ -3,6 +3,8 @@ import { PropTypes } from 'prop-types';
 
 import { removeBook } from '../../redux/books/booksReducer';
 
+import st from './book.module.css';
+
 const Book = (props) => {
   const { book } = props;
   const {
@@ -20,13 +22,34 @@ const Book = (props) => {
   };
 
   return (
-    <li className="book">
-      <h3>{genre}</h3>
-      <h2>{title}</h2>
-      <p className="author">{author}</p>
-      <button type="button" onClick={onRemoveBtnClicked}>
-        Remove
-      </button>
+    <li className={st.card}>
+      <div className={st.leftContent}>
+        <h3>{genre}</h3>
+        <h2>{title}</h2>
+        <p className="author">{author}</p>
+        <div>
+          <button type="button">Comments</button>
+          <button type="button" onClick={onRemoveBtnClicked}>
+            Remove
+          </button>
+          <button type="button">Edit</button>
+        </div>
+      </div>
+      <div className={st.rightContent}>
+        <div className={st.completed}>
+          <i className={st.completedIcon} />
+        </div>
+        <div className={st.completedText}>
+          <span className={st.completedTextPercetange}>64%</span>
+          <span className={st.completedTextSub}>Completed</span>
+        </div>
+        <div className={st.rightLine} />
+        <div className={st.progress}>
+          <p className={st.progressTitle}>CURRENT CHAPTER</p>
+          <p className={st.progressChapter}>Chapter 17</p>
+          <button type="button" className={st.progressButton}>UPDATE PROGRESS</button>
+        </div>
+      </div>
     </li>
   );
 };
