@@ -14,9 +14,9 @@ class ApiAccess {
       headersList,
     };
     if (method === 'GET') {
-      newUrl += `?${(new URLSearchParams(params)).toString()}`;
-    } else {
-      options.body = JSON.stringify(params);
+      newUrl += `?${new URLSearchParams(params).toString()}`;
+    } else if (method === 'DELETE') {
+      newUrl += `/${params.item_id}`;
     }
 
     return fetch(newUrl, options);
@@ -33,32 +33,26 @@ class ApiAccess {
     return '';
   };
 
-  // eslint-disable-next-line no-unused-vars
-  // post = async (url, params, callback) => {
-  //   const response = await this.request(url, params, 'POST');
-  //   if (callback !== undefined && response.ok) {
-  //     callback();
-  //   }
-  //   return response;
-  // };
-
-  post = async (item_id, category, title) => {
+  post = async (url, params = {}) => {
     const headersList = {
-      "Accept": "*/*",
-      "Content-Type": "application/json",
+      Accept: '*/*',
+      'Content-Type': 'application/json',
     };
 
-    const body = {
-      item_id, category, title,
-    };
+    const body = params;
 
-    const response = await fetch('https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/OMlwiHaSBLEL62sFo84R/books', {
+    const response = await fetch(url, {
       method: 'POST',
       body: JSON.stringify(body),
       headers: headersList,
     });
     return response;
-  }
+  };
+
+  delete = async (url, params) => {
+    const response = await this.request(url, params, 'DELETE');
+    return response;
+  };
 }
 
 const apiAccess = new ApiAccess();

@@ -58,10 +58,10 @@ const reducer = (state = initialState, action) => {
   }
 };
 
-export const addBook = (payload) => ({
-  type: ADD_BOOK,
-  payload,
-});
+// export const addBook = (payload) => ({
+//   type: ADD_BOOK,
+//   payload,
+// });
 
 export const removeBook = (payload) => ({
   type: REMOVE_BOOK,
@@ -72,14 +72,17 @@ export const fetchBooks = createAsyncThunk(
   'bookstore/books/fetchBooks',
   async () => {
     const response = await apiAccess.get(apiRoutes.MAIN);
+    console.log(Object.entries(response));
     const books = Object.entries(response).map((book) => ({
       id: book[0],
       title: book[1][0].title,
       category: book[1][0].category,
       genre: 'No support',
-    }));
+    }))
     return books;
   },
 );
+
+export const addBook 
 
 export default reducer;
