@@ -7,7 +7,9 @@ import st from './book.module.css';
 
 const Book = (props) => {
   const { book } = props;
-  const { id, genre, title, author } = book;
+  const {
+    id, genre, title, author,
+  } = book;
 
   const dispatch = useDispatch();
 
@@ -45,7 +47,7 @@ const Book = (props) => {
         <div className={st.progress}>
           <p className={st.progressTitle}>CURRENT CHAPTER</p>
           <p className={st.progressChapter}>Chapter 17</p>
-          <button className={st.progressButton}>UPDATE PROGRESS</button>
+          <button type="button" className={st.progressButton}>UPDATE PROGRESS</button>
         </div>
       </div>
     </li>
