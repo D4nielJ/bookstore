@@ -1,0 +1,12 @@
+.books {
+  max-width: 87.5rem;
+  margin: 0 auto;
+  padding: 2.375rem 6.25rem 1.688rem;
+}
+
+.booksList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  margin-bottom: 2.5rem;
+}

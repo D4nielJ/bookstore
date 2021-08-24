@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux';
 import Book from './book';
 import BooksForm from './booksForm';
+import st from './books.module.css';
 
 const Books = () => {
   const books = useSelector((state) => state.books);
@@ -8,10 +9,10 @@ const Books = () => {
   const renderedBooks = books.map((book) => <Book key={book.id} book={book} />);
 
   return (
-    <div className="books">
-      <ul className="books-list">{renderedBooks}</ul>
+    <section className={st.books}>
+      <ul className={st.booksList}>{renderedBooks}</ul>
       <BooksForm />
-    </div>
+    </section>
   );
 };
 
