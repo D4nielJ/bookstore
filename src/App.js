@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Navbar from './components/navbar/navbar';
+import Categories from './components/categories/categories';
+import Books from './components/books/books';
+import NoMatch from './components/noMatch/noMatch';
 
-function App() {
-  return (
+const App = () => (
+  <Router basename={process.env.PUBLIC_URL}>
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar />
+      <Switch>
+        <Route path="/categories">
+          <Categories />
+        </Route>
+        <Route exact path="/">
+          <Books />
+        </Route>
+        <Route path="*">
+          <NoMatch />
+        </Route>
+      </Switch>
     </div>
-  );
-}
+  </Router>
+);
 
 export default App;
