@@ -2,19 +2,19 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = [
   {
-    id: 1,
+    id: '1',
     title: 'Lord of the Rings',
     author: 'Tolkien',
     genre: 'Fantasy',
   },
   {
-    id: 2,
+    id: '2',
     title: 'Game of Thrones',
     author: 'Martin',
     genre: 'Fantasy',
   },
   {
-    id: 3,
+    id: '3',
     title: '1984',
     author: 'Asimov',
     genre: 'Science Fiction',
