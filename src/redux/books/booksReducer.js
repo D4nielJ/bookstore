@@ -1,4 +1,5 @@
-import { createSlice } from '@reduxjs/toolkit';
+const ADD_BOOK = 'bookstore/books/ADD_BOOK';
+const REMOVE_BOOK = 'bookstore/books/REMOVE_BOOK';
 
 const initialState = [
   {
@@ -21,20 +22,27 @@ const initialState = [
   },
 ];
 
-export const booksSlice = createSlice({
-  name: 'books',
-  initialState,
-  reducers: {
-    addBook(state, action) {
-      state.push(action.payload);
-    },
-    removeBook(state, action) {
-      return state.filter((book) => book.id !== action.payload.id);
-    },
-  },
+export const addBook = (payload) => ({
+  type: ADD_BOOK,
+  payload,
 });
 
-// Action creators are generated for each case reducer function
-export const { addBook, removeBook } = booksSlice.actions;
+export const removeBook = (payload) => ({
+  type: REMOVE_BOOK,
+  payload,
+});
 
-export default booksSlice.reducer;
+const reducer = (state = initialState, action) => {
+  switch (action.type) {
+    case ADD_BOOK:
+      return [...state, action.payload];
+
+    case REMOVE_BOOK:
+      return state.filter((book) => book.id !== action.payload.id);
+
+    default:
+      return state;
+  }
+};
+
+export default reducer;
