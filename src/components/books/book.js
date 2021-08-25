@@ -7,7 +7,9 @@ import st from './book.module.css';
 
 const Book = (props) => {
   const { book } = props;
-  const { id, category, title, author } = book;
+  const {
+    id, category, title, author,
+  } = book;
 
   const dispatch = useDispatch();
 
@@ -47,7 +49,7 @@ const Book = (props) => {
           <span className={st.completedTextPrc}>64%</span>
           <span className={st.completedTextSub}>Completed</span>
         </div>
-          <div className={st.line2} />
+        <div className={st.line2} />
         <div className={`${st.progress} font-alt`}>
           <p className={st.current}>CURRENT CHAPTER</p>
           <p className={st.progressChapter}>Chapter 17</p>

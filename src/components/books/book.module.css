@@ -67,11 +67,12 @@
 }
 
 .completed {
-  background: linear-gradient(
-    to bottom,
-    var(--medium-blue),
-    var(--dodger-blue)
-  );
+  background:
+    linear-gradient(
+      to bottom,
+      var(--medium-blue),
+      var(--dodger-blue)
+    );
   height: 4.25rem;
   width: 4.25rem;
   border-radius: 50%;
