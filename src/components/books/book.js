@@ -44,12 +44,12 @@ const Book = (props) => {
           <i className={st.completedIcon} />
         </div>
         <div className={st.completedText}>
-          <span className={st.completedTextPercetange}>64%</span>
+          <span className={st.completedTextPrc}>64%</span>
           <span className={st.completedTextSub}>Completed</span>
         </div>
-        <div className={st.rightLine} />
-        <div className={st.progress}>
-          <p className={st.progressTitle}>CURRENT CHAPTER</p>
+          <div className={st.line2} />
+        <div className={`${st.progress} font-alt`}>
+          <p className={st.current}>CURRENT CHAPTER</p>
           <p className={st.progressChapter}>Chapter 17</p>
           <button type="button" className={st.progressButton}>
             UPDATE PROGRESS
