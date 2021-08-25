@@ -7,24 +7,20 @@ import st from './book.module.css';
 
 const Book = (props) => {
   const { book } = props;
-  const {
-    id, genre, title, author,
-  } = book;
+  const { id, category, title, author } = book;
 
   const dispatch = useDispatch();
 
   const onRemoveBtnClicked = () => {
     dispatch(
-      removeBook({
-        id,
-      }),
+      removeBook(id),
     );
   };
 
   return (
     <li className={st.card}>
       <div className={st.leftContent}>
-        <h3>{genre}</h3>
+        <h3>{category}</h3>
         <h2>{title}</h2>
         <p className="author">{author}</p>
         <div>
@@ -47,7 +43,9 @@ const Book = (props) => {
         <div className={st.progress}>
           <p className={st.progressTitle}>CURRENT CHAPTER</p>
           <p className={st.progressChapter}>Chapter 17</p>
-          <button type="button" className={st.progressButton}>UPDATE PROGRESS</button>
+          <button type="button" className={st.progressButton}>
+            UPDATE PROGRESS
+          </button>
         </div>
       </div>
     </li>

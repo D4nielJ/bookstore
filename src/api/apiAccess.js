@@ -16,7 +16,7 @@ class ApiAccess {
     if (method === 'GET') {
       newUrl += `?${new URLSearchParams(params).toString()}`;
     } else if (method === 'DELETE') {
-      newUrl += `/${params.item_id}`;
+      newUrl += `/${params}`;
     }
 
     return fetch(newUrl, options);

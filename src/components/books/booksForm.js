@@ -6,30 +6,26 @@ import { addBook } from '../../redux/books/booksReducer';
 
 const BooksForm = () => {
   const [title, setTitle] = useState('');
-  const [author, setAuthor] = useState('');
-  const [genre, setGenre] = useState('Action');
+  const [category, setcategory] = useState('Action');
 
   const dispatch = useDispatch();
 
   const onTitleChanged = (e) => setTitle(e.target.value);
-  const onAuthorChange = (e) => setAuthor(e.target.value);
-  const onGenreChanged = (e) => setGenre(e.target.value);
+  const onCategoryChanged = (e) => setcategory(e.target.value);
 
   const onAddBookClicked = (e) => {
     e.preventDefault();
-    if (title && genre && author) {
+    if (title && category) {
       dispatch(
         addBook({
-          id: nanoid(),
+          item_id: nanoid(),
+          category,
           title,
-          genre,
-          author,
         }),
       );
 
       setTitle('');
-      setAuthor('');
-      setGenre('Action');
+      setcategory('Action');
     }
   };
 
@@ -45,16 +41,12 @@ const BooksForm = () => {
         placeholder="Title"
         required
       />
-      <input
-        type="text"
-        name="author"
-        id="author"
-        value={author}
-        onChange={onAuthorChange}
-        placeholder="Author"
-        required
-      />
-      <select name="genre" id="genre" value={genre} onChange={onGenreChanged}>
+      <select
+        name="category"
+        id="category"
+        value={category}
+        onChange={onCategoryChanged}
+      >
         <option value="Action">Action</option>
         <option value="Science Fiction">Science Fiction</option>
       </select>
