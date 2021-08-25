@@ -4,6 +4,8 @@ import { nanoid } from '@reduxjs/toolkit';
 
 import { addBook } from '../../redux/books/booksReducer';
 
+import st from './booksForm.module.css';
+
 const BooksForm = () => {
   const [title, setTitle] = useState('');
   const [category, setcategory] = useState('Action');
@@ -30,8 +32,8 @@ const BooksForm = () => {
   };
 
   return (
-    <form onSubmit={onAddBookClicked}>
-      <h2>ADD NEW BOOK</h2>
+    <form onSubmit={onAddBookClicked} className={st.form}>
+      <h2 className={st.title}>ADD NEW BOOK</h2>
       <input
         type="text"
         name="title"
@@ -39,6 +41,7 @@ const BooksForm = () => {
         value={title}
         onChange={onTitleChanged}
         placeholder="Title"
+        className={st.input}
         required
       />
       <select
@@ -46,11 +49,14 @@ const BooksForm = () => {
         id="category"
         value={category}
         onChange={onCategoryChanged}
+        className={st.select}
       >
         <option value="Action">Action</option>
         <option value="Science Fiction">Science Fiction</option>
       </select>
-      <button type="submit">ADD BOOK</button>
+      <button type="submit" className={st.button}>
+        ADD BOOK
+      </button>
     </form>
   );
 };

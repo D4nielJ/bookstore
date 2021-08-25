@@ -2,8 +2,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import Book from './book';
 import BooksForm from './booksForm';
-import st from './books.module.css';
 import { fetchBooks } from '../../redux/books/booksReducer';
+
+import st from './books.module.css';
 
 const Books = () => {
   const dispatch = useDispatch();
@@ -21,6 +22,7 @@ const Books = () => {
   return (
     <section className={st.books}>
       <ul className={st.booksList}>{renderedBooks}</ul>
+      <div className={st.line} />
       <BooksForm />
     </section>
   );
