@@ -7,7 +7,9 @@ import st from './book.module.css';
 
 const Book = (props) => {
   const { book } = props;
-  const { id, category, title, author } = book;
+  const {
+    id, category, title, author,
+  } = book;
 
   const dispatch = useDispatch();
 
@@ -56,7 +58,7 @@ Book.propTypes = {
   book: PropTypes.shape({
     id: PropTypes.string,
     title: PropTypes.string,
-    genre: PropTypes.string,
+    category: PropTypes.string,
     author: PropTypes.string,
   }).isRequired,
 };

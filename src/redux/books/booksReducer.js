@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import apiRoutes from '../../api/apiRoutes';
 import apiAccess from '../../api/apiAccess';
