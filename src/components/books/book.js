@@ -7,30 +7,36 @@ import st from './book.module.css';
 
 const Book = (props) => {
   const { book } = props;
-  const {
-    id, category, title, author,
-  } = book;
+  const { id, category, title, author } = book;
 
   const dispatch = useDispatch();
 
   const onRemoveBtnClicked = () => {
-    dispatch(
-      removeBook(id),
-    );
+    dispatch(removeBook(id));
   };
 
   return (
     <li className={st.card}>
       <div className={st.leftContent}>
         <h3>{category}</h3>
-        <h2>{title}</h2>
-        <p className="author">{author}</p>
-        <div>
-          <button type="button">Comments</button>
-          <button type="button" onClick={onRemoveBtnClicked}>
+        <h2 className="font-alt">{title}</h2>
+        <p className={`${st.author} font-alt`}>{author}</p>
+        <div className={st.leftButtons}>
+          <button type="button" className="font-alt">
+            Comments
+          </button>
+          <div className={st.line2} />
+          <button
+            type="button"
+            className="font-alt"
+            onClick={onRemoveBtnClicked}
+          >
             Remove
           </button>
-          <button type="button">Edit</button>
+          <div className={st.line2} />
+          <button type="button" className="font-alt">
+            Edit
+          </button>
         </div>
       </div>
       <div className={st.rightContent}>
