@@ -6,7 +6,7 @@ import { removeBook } from '../../redux/books/booksReducer';
 import st from './book.module.css';
 import Progress from '../charts/progress';
 
-const percentage = 75;
+const percentage = 64;
 
 const Book = (props) => {
   const { book } = props;
