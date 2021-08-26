@@ -5,14 +5,17 @@ import { nanoid } from '@reduxjs/toolkit';
 import { addBook } from '../../redux/books/booksReducer';
 
 import st from './booksForm.module.css';
+import TextInput from '../forms/input';
 
 const BooksForm = () => {
   const [title, setTitle] = useState('');
+  const [author, setAuthor] = useState('');
   const [category, setcategory] = useState('Action');
 
   const dispatch = useDispatch();
 
   const onTitleChanged = (e) => setTitle(e.target.value);
+  const onAuthorChanged = (e) => setAuthor(e.target.value);
   const onCategoryChanged = (e) => setcategory(e.target.value);
 
   const onAddBookClicked = (e) => {
@@ -34,16 +37,8 @@ const BooksForm = () => {
   return (
     <form onSubmit={onAddBookClicked} className={st.form}>
       <h2 className={st.title}>ADD NEW BOOK</h2>
-      <input
-        type="text"
-        name="title"
-        id="title"
-        value={title}
-        onChange={onTitleChanged}
-        placeholder="Title"
-        className={st.input}
-        required
-      />
+      <TextInput value={title} changeEvent={onTitleChanged} placeholder="Title" required />
+      <TextInput value={author} changeEvent={onAuthorChanged} placeholder="Author" required />
       <select
         name="category"
         id="category"
