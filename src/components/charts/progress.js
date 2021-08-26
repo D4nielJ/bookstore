@@ -1,5 +1,4 @@
 import { Pie } from 'react-chartjs-2';
-import st from './progress.module.css'
 
 const Progress = (props) => {
   const { percentage } = props;
@@ -30,7 +29,7 @@ const Progress = (props) => {
   };
 
   return (
-    <div className={st.container}>
+    <div>
       <Pie data={data} options={options} />
     </div>
   );
