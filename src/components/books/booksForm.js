@@ -60,8 +60,8 @@ const BooksForm = () => {
       dispatch(
         addBook({
           item_id: nanoid(),
-          atr,
           title,
+          atr,
         }),
       );
 
