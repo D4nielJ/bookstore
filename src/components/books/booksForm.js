@@ -56,7 +56,6 @@ const BooksForm = () => {
         setAuthor('Anonymous');
       }
       const atr = `${category}-${author}-${chaptersTotal}-${currentChapter}`;
-      console.log(atr);
       dispatch(
         addBook({
           item_id: nanoid(),
