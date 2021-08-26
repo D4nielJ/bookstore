@@ -2,6 +2,23 @@
 
 # Bookstore
 
+The Bookstore is a website similar to the "[Awesome Books](https://github.com/D4nielJ/awesome-books)" website that we built in the pass. This is an MVP version of it that allows to:
+
+    Display a list of books.
+    Add a book.
+    Remove a selected book.
+
+By building this application, I have learned how to use React and Redux.
+
+Additionally, the Bookstore storage the list of books in an external API provided by Microverse.
+
+## Live demo
+[Live Demo Here](https://cranky-jepsen-7a2b4a.netlify.app/)
+
+## Preview
+
+![](./screenshot.png)
+
 ## Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

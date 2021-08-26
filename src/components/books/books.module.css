@@ -9,4 +9,11 @@
   flex-direction: column;
   gap: 0.9rem;
   margin-bottom: 2.5rem;
+  max-height: 60vh;
+  overflow-y: scroll;
+}
+
+.line {
+  border: solid 1px #e8e8e8;
+  margin-bottom: 1.8rem;
 }

@@ -1,0 +1,40 @@
+.form {
+  display: flex;
+  align-items: stretch;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  letter-spacing: -0.18px;
+  color: var(--warm-grey);
+  margin-bottom: 1.2rem;
+  flex: 0 0 100%;
+}
+
+.select {
+  flex: 0 0 30%;
+  padding: 0.8rem 1rem;
+  border-radius: 4px;
+  border: solid 1px #e8e8e8;
+  background-color: #fff;
+  letter-spacing: -0.15px;
+  opacity: 0.6;
+  color: var(--black-two);
+}
+
+.button {
+  flex: 0 0 13%;
+  border: none;
+  cursor: pointer;
+  padding: 0.8rem 1rem;
+  border-radius: 3px;
+  background-color: var(--azure);
+  font-size: 0.813rem;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  text-align: center;
+  color: #fff;
+}

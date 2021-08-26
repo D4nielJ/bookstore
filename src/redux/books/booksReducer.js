@@ -40,50 +40,39 @@ const reducer = (state = initialState, action) => {
   }
 };
 
-export const fetchBooks = createAsyncThunk(
-  'bookstore/books/fetchBooks',
-  async () => {
-    const response = await apiAccess.get(apiRoutes.MAIN);
-    const books = Object.entries(response).map((book) => ({
-      id: book[0],
-      title: book[1][0].title,
-      category: book[1][0].category,
-      author: 'Jhon Doe',
-    }));
-    return books;
-  },
-);
+export const fetchBooks = createAsyncThunk('bookstore/books/fetchBooks', async () => {
+  const response = await apiAccess.get(apiRoutes.MAIN);
+  const books = Object.entries(response).map((book) => ({
+    id: book[0],
+    title: book[1][0].title,
+    atr: book[1][0].category,
+  }));
+  return books;
+});
 
-export const addBook = createAsyncThunk(
-  'bookstore/books/addBook',
-  async (book) => {
-    const { item_id, category, title } = book;
-    const response = await apiAccess.post(apiRoutes.MAIN, {
-      item_id,
+export const addBook = createAsyncThunk('bookstore/books/addBook', async (book) => {
+  const { item_id, title, atr } = book;
+  const response = await apiAccess.post(apiRoutes.MAIN, {
+    item_id,
+    title,
+    category: atr,
+  });
+  if (response.ok) {
+    return {
+      id: item_id,
       title,
-      category,
-    });
-    if (response.ok) {
-      return {
-        id: item_id,
-        title,
-        category,
-        author: 'Jhon Doe',
-      };
-    }
-    return {};
-  },
-);
+      atr,
+    };
+  }
+  return null;
+});
 
-export const removeBook = createAsyncThunk(
-  'bookstore/books/removeBook',
-  async (id) => {
-    const response = await apiAccess.delete(apiRoutes.MAIN, id);
-    if (response.ok) {
-      return { id };
-    }
-    return {};
-  },
-);
+export const removeBook = createAsyncThunk('bookstore/books/removeBook', async (id) => {
+  const response = await apiAccess.delete(apiRoutes.MAIN, id);
+  if (response.ok) {
+    return { id };
+  }
+  return {};
+});
 
 export default reducer;
