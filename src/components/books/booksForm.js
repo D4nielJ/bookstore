@@ -32,7 +32,7 @@ const BooksForm = () => {
   // NON-DRY
 
   const categoriesOptions = categories.map((categorie, index) => (
-    <option key={index} value={index}>
+    <option key={categorie} value={index}>
       {categorie}
     </option>
   ));
