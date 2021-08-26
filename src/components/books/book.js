@@ -4,18 +4,20 @@ import { PropTypes } from 'prop-types';
 import { removeBook } from '../../redux/books/booksReducer';
 
 import st from './book.module.css';
+import Progress from '../charts/progress';
+
+const percentage = 75;
 
 const Book = (props) => {
   const { book } = props;
-  const {
-    id, category, title, author,
-  } = book;
+  const { id, category, title, author } = book;
 
   const dispatch = useDispatch();
 
   const onRemoveBtnClicked = () => {
     dispatch(removeBook(id));
   };
+
 
   return (
     <li className={st.card}>
@@ -43,6 +45,7 @@ const Book = (props) => {
       </div>
       <div className={st.rightContent}>
         <div className={st.completed}>
+          <Progress percentage={percentage} />
           <i className={st.completedIcon} />
         </div>
         <div className={st.completedText}>
