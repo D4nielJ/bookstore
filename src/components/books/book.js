@@ -69,8 +69,7 @@ Book.propTypes = {
   book: PropTypes.shape({
     id: PropTypes.string,
     title: PropTypes.string,
-    category: PropTypes.string,
-    author: PropTypes.string,
+    atr: PropTypes.string,
   }).isRequired,
 };
 
